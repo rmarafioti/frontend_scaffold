@@ -1,0 +1,156 @@
+.nav_menu {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0;
+}
+
+.nav_link {
+  font-weight: 600;
+  font-size: 28px;
+  color: var(--foreground);
+  background: var(--background);
+}
+
+.link_container {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0;
+}
+
+.nav_link {
+  text-decoration: none;
+}
+
+.nav_link:hover,
+.menu_icon:hover,
+.active_link {
+  color: var(--forground);
+  background: var(--blush);
+  border-bottom: none;
+}
+
+.mobile_nav {
+  display: none;
+}
+
+.menu {
+  display: none;
+}
+
+@media (max-width: 667px) {
+  .nav_menu {
+    display: none;
+  }
+  .mobile_nav {
+    position: fixed;
+    background-color: var(--background);
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem 1rem 1rem;
+    z-index: 100;
+  }
+
+  /* mobile menu */
+
+  .menu {
+    font-weight: 600;
+    width: 100%;
+    margin: 0rem;
+    padding: 0rem;
+    background-color: var(--background);
+  }
+
+  .menu :last-child {
+    border-bottom: none;
+  }
+
+  .menu.active {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    text-align: center;
+    height: 64vh;
+    z-index: 1000;
+    margin-top: 6rem;
+  }
+}
+
+/* dark mode stylings */
+@media (prefers-color-scheme: dark) {
+  .nav_link,
+  .menu_icon {
+    color: #ecd5cd;
+    background-color: #3b3840;
+  }
+  .nav_link:hover,
+  .menu_icon:hover,
+  .active_link {
+    background: #0a0a0a;
+  }
+  .icon_light {
+    display: none;
+  }
+
+  .icon_dark {
+    display: block;
+    left: 48px;
+  }
+}
+
+[data-theme="dark"] :is(.nav_link, .menu_icon) {
+  color: #ecd5cd;
+  background-color: #3b3840;
+}
+
+[data-theme="dark"] :is(.nav_link:hover, .menu_icon:hover, .active_link) {
+  background: #0a0a0a;
+}
+
+[data-theme="dark"] .icon_light {
+  display: none;
+}
+
+[data-theme="dark"] .icon_dark {
+  display: block;
+  left: 48px;
+}
+
+/* mobile breakpoint */
+@media (max-width: 1300px) {
+  .nav_link {
+    background-color: transparent;
+    margin-top: 0rem;
+  }
+  .nav_link:hover,
+  .menu_icon:hover,
+  .active_link {
+    color: var(--forground);
+    background: transparent;
+    border-bottom: none;
+  }
+  .menu_icon,
+  .menu_icon_dark {
+    background-color: transparent;
+    padding-left: 0rem;
+    margin-top: 0rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    .nav_link,
+    .menu_icon {
+      background-color: transparent;
+    }
+  }
+  [data-theme="dark"] :is(.nav_link, .menu_icon) {
+    background-color: transparent;
+  }
+  [data-theme="dark"] :is(.nav_link:hover, .menu_icon:hover, .active_link) {
+    background: transparent;
+  }
+}
