@@ -3,7 +3,7 @@
 export default function Feature_Two() {
   return (
     <main>
-      <h1>This is Feature Two</h1>
+      <h1>Feature Two</h1>
       <h2>
         Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet
         consectetur adipiscing elit quisque faucibus.

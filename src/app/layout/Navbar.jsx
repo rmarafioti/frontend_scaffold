@@ -30,21 +30,21 @@ export default function Navbar() {
   return (
     <>
       <nav>
-        <div className={pc.nav_menu}>
-          <div className={pc.link_container}>
-            {links
-              .filter((link) => link.href)
-              .map(({ href, label }) => (
-                <Link key={href} href={href}>
-                  {label}
-                </Link>
-              ))}
-          </div>
+        <div className={pc.link_container}>
+          {links
+            .filter((link) => link.href)
+            .map(({ href, label }) => (
+              <Link key={href} href={href} className={pc.nav_link}>
+                {label}
+              </Link>
+            ))}
         </div>
 
         {/* mobile navigation menu below */}
         <section className={pc.mobile_nav}>
-          <Link href="/">Home</Link>
+          <Link href="/" className={pc.nav_link}>
+            Home
+          </Link>
           {/*hamburger menu*/}
           <div id={mobile.hamMenuContainer} onClick={toggleMenu}>
             <div

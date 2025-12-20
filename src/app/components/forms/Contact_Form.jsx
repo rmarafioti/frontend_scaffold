@@ -91,8 +91,8 @@ export default function Contact_Form() {
   };
 
   return (
-    <div className={styles.contact_form_container}>
-      <h2 className={styles.header}>Form</h2>
+    <section className={styles.contact_form_container}>
+      <h3 className={styles.header}>Form</h3>
       <p className={styles.sub_header}>
         Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet
         consectetur adipiscing elit quisque faucibus.
@@ -149,6 +149,6 @@ export default function Contact_Form() {
         )}
       </form>
       <Form_Modal isOpen={isOpen} closeModal={closeModal} />
-    </div>
+    </section>
   );
 }
