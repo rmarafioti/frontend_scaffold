@@ -90,7 +90,7 @@ main {
   animation: fadeIn 2s ease-in-out;
   width: 100%;
   min-height: 100vh;
-  margin-bottom: 6rem;
+  padding: 6rem 1rem 6rem 1rem;
 }
 
 @keyframes fadeIn {
@@ -128,7 +128,9 @@ button {
     font-size: .8rem;
   }
   main {
-    margin: 8rem 0rem 4rem 0rem;
+    width: 100%;
+    padding: 2rem 1rem 6rem 1rem;
+    
   }
   form {
     width: 100%;
