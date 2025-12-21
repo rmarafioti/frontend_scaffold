@@ -100,13 +100,13 @@ main {
 
 section {
   width: 800px;
-    text-align: left;
+  text-align: left;
 }
 
 @media (max-width: 800px) {
- section {
-  width: 100%;
- }
+  section {
+    width: 100%;
+  }
 }
 
 @keyframes fadeIn {
@@ -141,12 +141,11 @@ button {
   }
   footer {
     width: 100%;
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
   main {
     width: 100%;
     padding: 2rem 1rem 6rem 1rem;
-    
   }
   form {
     width: 100%;
