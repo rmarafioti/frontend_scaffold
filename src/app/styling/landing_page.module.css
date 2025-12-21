@@ -1,0 +1,23 @@
+.pc_photo {
+    width: 60%;
+    height: auto;
+    margin-bottom: 2rem;
+}
+
+.mobile_photo {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .copy_section {
+        width: 100%;
+    }
+    .pc_photo {
+        display: none;
+    }
+    .mobile_photo {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}

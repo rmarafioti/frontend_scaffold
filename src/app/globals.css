@@ -10,7 +10,7 @@
   --foreground: #171717;
   --dm_background: #3b3840;
 
-  --main-font: "Fraunces", serif;
+  --main-font: "Outfit", serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -96,6 +96,17 @@ main {
   width: 100%;
   min-height: 100vh;
   padding: 6rem 1rem 6rem 1rem;
+}
+
+section {
+  width: 800px;
+    text-align: left;
+}
+
+@media (max-width: 800px) {
+ section {
+  width: 100%;
+ }
 }
 
 @keyframes fadeIn {

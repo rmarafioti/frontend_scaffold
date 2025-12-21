@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 
-export default function ResponsiveImage({
+export default function Responsive_Image({
   initialPhoto,
   secondaryPhoto,
-  initialClass,
-  secondaryClass,
+  initialClassName,
+  secondaryClassName,
 }) {
   return (
     <>
@@ -16,7 +16,7 @@ export default function ResponsiveImage({
           alt={initialPhoto.alt}
           width={initialPhoto.width}
           height={initialPhoto.height}
-          className={initialClass}
+          className={initialClassName}
           sizes="100vw"
           priority
         />
@@ -27,7 +27,7 @@ export default function ResponsiveImage({
           alt={secondaryPhoto.alt}
           width={secondaryPhoto.width}
           height={secondaryPhoto.height}
-          className={secondaryClass}
+          className={secondaryClassName}
           priority
         />
       )}
