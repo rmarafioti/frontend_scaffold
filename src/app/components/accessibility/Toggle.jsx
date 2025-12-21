@@ -6,7 +6,7 @@ export default function Toggle({ onToggle, isToggled }) {
   };
 
   return (
-    <section className={styles.toggleSection}>
+    <article className={styles.toggleSection}>
       <div
         className={styles.toggleContainer}
         onClick={handleToggle}
@@ -26,6 +26,6 @@ export default function Toggle({ onToggle, isToggled }) {
           }`}
         ></div>
       </div>
-    </section>
+    </article>
   );
 }

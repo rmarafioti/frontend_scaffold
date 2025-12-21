@@ -1,6 +1,6 @@
 "use client";
 
-import { Fraunces } from "next/font/google";
+import { Outfit } from "next/font/google";
 
 import { useState, useEffect } from "react";
 
@@ -8,7 +8,7 @@ import Navbar from "../layout/Navbar";
 import Footer from "../layout/Footer";
 import Access_Menu from "../components/accessibility/Access_Menu";
 
-const fraunces = Fraunces({
+const outfit = Outfit({
   variable: "--main-font",
   weight: ["300", "600"],
   subsets: ["latin"],
@@ -72,7 +72,7 @@ export default function AppWrapper({ children }) {
           ${
             accessibility.isRemoveFontStyle
               ? "accessible-font"
-              : fraunces.className
+              : outfit.className
           }
         `}
         style={{

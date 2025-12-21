@@ -10,7 +10,7 @@
   --foreground: #171717;
   --dm_background: #3b3840;
 
-  --main-font: "Fraunces", serif;
+  --main-font: "Outfit", serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -91,11 +91,21 @@ main {
   flex-direction: column;
   align-items: center;
   justify-items: center;
-  text-align: center;
   animation: fadeIn 2s ease-in-out;
   width: 100%;
   min-height: 100vh;
   padding: 6rem 1rem 6rem 1rem;
+}
+
+section {
+  width: 800px;
+  text-align: left;
+}
+
+@media (max-width: 800px) {
+  section {
+    width: 100%;
+  }
 }
 
 @keyframes fadeIn {
@@ -130,12 +140,11 @@ button {
   }
   footer {
     width: 100%;
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
   main {
     width: 100%;
     padding: 2rem 1rem 6rem 1rem;
-    
   }
   form {
     width: 100%;

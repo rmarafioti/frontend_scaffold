@@ -36,7 +36,7 @@ export default function AccessMenu({
               Close
             </button>
           </div>
-          <section className={styles.controls}>
+          <article className={styles.controls}>
             <div className={styles.controlSection}>
               <p className={styles.controlItem}>Theme</p>
               <div className={styles.controlItem}>
@@ -72,7 +72,7 @@ export default function AccessMenu({
                 />
               </div>
             </div>
-          </section>
+          </article>
           <button className={styles.resetButton} onClick={resetAccessibility}>
             Reset
           </button>

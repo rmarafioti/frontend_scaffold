@@ -91,7 +91,7 @@ export default function Contact_Form() {
   };
 
   return (
-    <section className={styles.contact_form_container}>
+    <section>
       <h3 className={styles.header}>Form</h3>
       <p className={styles.sub_header}>
         Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet
