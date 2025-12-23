@@ -1,36 +1,35 @@
 "use client";
 
-import Image from "next/image";
+import { getImageProps } from "next/image";
 
-export default function Responsive_Image({
-  initialPhoto,
-  secondaryPhoto,
-  initialClassName,
-  secondaryClassName,
-}) {
+import styles from "../styling/responsive_image.module.css";
+
+export default function Responsive_Image({ photoData }) {
+  const { desktop, mobile, alt } = photoData;
+  const primaryAttributes = { alt, priority: true };
+
+  const {
+    props: { srcSet: mobileSrcSet },
+  } = getImageProps({
+    ...primaryAttributes,
+    src: mobile.src,
+    height: mobile.height,
+    width: mobile.width,
+  });
+
+  const {
+    props: { ...desktopProps },
+  } = getImageProps({
+    ...primaryAttributes,
+    src: desktop.src,
+    height: desktop.height,
+    width: desktop.width,
+  });
+
   return (
-    <>
-      {initialPhoto && (
-        <Image
-          src={initialPhoto.src}
-          alt={initialPhoto.alt}
-          width={initialPhoto.width}
-          height={initialPhoto.height}
-          className={initialClassName}
-          sizes="100vw"
-          priority
-        />
-      )}
-      {secondaryPhoto && (
-        <Image
-          src={secondaryPhoto.src}
-          alt={secondaryPhoto.alt}
-          width={secondaryPhoto.width}
-          height={secondaryPhoto.height}
-          className={secondaryClassName}
-          priority
-        />
-      )}
-    </>
+    <picture>
+      <source media="(max-width: 800px)" srcSet={mobileSrcSet} />
+      <img {...desktopProps} className={styles.image} />
+    </picture>
   );
 }
