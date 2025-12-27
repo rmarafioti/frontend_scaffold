@@ -38,7 +38,7 @@ export default function AppWrapper({ children }) {
   const adjustFontSize = (increment) => {
     setAccessibility((prev) => ({
       ...prev,
-      fontSizeAdjust: Math.max(1, prev.fontSizeAdjust + increment),
+      fontSizeAdjust: Math.max(1, Math.min(4, prev.fontSizeAdjust + increment)),
     }));
   };
 
@@ -76,7 +76,7 @@ export default function AppWrapper({ children }) {
           }
         `}
         style={{
-          fontSize: `${1 * accessibility.fontSizeAdjust}rem`,
+          fontSize: `${1 + 0.25 * accessibility.fontSizeAdjust}rem`,
         }}
       >
         {children}

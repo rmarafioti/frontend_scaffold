@@ -41,7 +41,7 @@ export default function Navbar() {
         </div>
 
         {/* mobile navigation menu below */}
-        <section className={pc.mobile_nav}>
+        <div className={pc.mobile_nav}>
           <Link href="/" className={pc.nav_link}>
             Home
           </Link>
@@ -53,7 +53,7 @@ export default function Navbar() {
               }`}
             ></div>
           </div>
-        </section>
+        </div>
       </nav>
 
       {/* mobile menu */}

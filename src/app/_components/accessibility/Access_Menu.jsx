@@ -61,13 +61,13 @@ export default function AccessMenu({
                 <FaMinus
                   className={styles.sizeItem}
                   role="button"
-                  onClick={() => adjustFontSize(-0.1)}
+                  onClick={() => adjustFontSize(-1)}
                 />
                 <FaPlus
                   className={styles.sizeItem}
                   role="button"
                   onClick={() => {
-                    adjustFontSize(0.1);
+                    adjustFontSize(1);
                   }}
                 />
               </div>
