@@ -7,7 +7,7 @@ import { FaMinus } from "react-icons/fa6";
 
 import Toggle from "./Toggle";
 
-import styles from "../../styling/access_menu.module.css";
+import styles from "../../_styling/access_menu.module.css";
 
 export default function AccessMenu({
   accessibility,
@@ -61,13 +61,13 @@ export default function AccessMenu({
                 <FaMinus
                   className={styles.sizeItem}
                   role="button"
-                  onClick={() => adjustFontSize(-0.1)}
+                  onClick={() => adjustFontSize(-1)}
                 />
                 <FaPlus
                   className={styles.sizeItem}
                   role="button"
                   onClick={() => {
-                    adjustFontSize(0.1);
+                    adjustFontSize(1);
                   }}
                 />
               </div>

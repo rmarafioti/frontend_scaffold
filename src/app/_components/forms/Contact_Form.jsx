@@ -3,9 +3,9 @@
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import Form_Modal from "./Form_Modal";
-import useModal from "../../hooks/useModal";
+import useModal from "../../_hooks/useModal";
 
-import styles from "../../styling/contact_form.module.css";
+import styles from "../../_styling/contact_form.module.css";
 
 export default function Contact_Form() {
   const formRef = useRef();
@@ -91,7 +91,7 @@ export default function Contact_Form() {
   };
 
   return (
-    <section>
+    <article>
       <h3 className={styles.header}>Form</h3>
       <p className={styles.sub_header}>
         Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet
@@ -149,6 +149,6 @@ export default function Contact_Form() {
         )}
       </form>
       <Form_Modal isOpen={isOpen} closeModal={closeModal} />
-    </section>
+    </article>
   );
 }
