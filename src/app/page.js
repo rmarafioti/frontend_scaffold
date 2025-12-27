@@ -1,10 +1,10 @@
 "use client";
 
-import { heroPhoto } from "./data/photos";
-import Responsive_Image from "./components/Responsive_image";
-import Contact_Form from "./components/forms/Contact_Form";
+import { heroPhoto } from "./_data/photos";
+import Responsive_Image from "./_components/Responsive_image";
+import Contact_Form from "./_components/forms/Contact_Form";
 
-import styles from "./styling/landing_page.module.css";
+import styles from "./_styling/landing_page.module.css";
 
 export default function Home() {
   return (

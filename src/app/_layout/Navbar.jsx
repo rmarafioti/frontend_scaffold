@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 /* naming conventions to define responsive design*/
-import pc from "../styling/navbar.module.css";
-import mobile from "../styling/mobile_nav.module.css";
+import pc from "../_styling/navbar.module.css";
+import mobile from "../_styling/mobile_nav.module.css";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);

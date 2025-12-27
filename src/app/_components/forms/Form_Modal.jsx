@@ -3,7 +3,7 @@
 import React from "react";
 import { IoCloseOutline } from "react-icons/io5";
 
-import styles from "../../styling/form_modal.module.css";
+import styles from "../../_styling/form_modal.module.css";
 
 export default function Form_Modal({ isOpen, closeModal, children }) {
   if (!isOpen) return null;

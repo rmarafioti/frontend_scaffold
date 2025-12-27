@@ -2,7 +2,7 @@
 
 import { getImageProps } from "next/image";
 
-import styles from "../styling/responsive_image.module.css";
+import styles from "../_styling/responsive_image.module.css";
 
 export default function Responsive_Image({ photoData }) {
   const { desktop, mobile, alt } = photoData;
