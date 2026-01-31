@@ -43,22 +43,19 @@ body {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 2.5em;
   margin-bottom: 2rem;
 }
 
-h2 {
-  font-size: 2em;
+h2, h3 {
+  font-size: 2.5em;
   margin-bottom: 2rem;
-}
-
-h3 {
-  font-size: 2em;
 }
 
 p,
-label {
-  font-size: 1.4em;
+label,
+button {
+  font-size: 1em;
 }
 
 /* accessibility font style */
