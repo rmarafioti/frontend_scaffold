@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import Responsive_Image_Theme from "../_components/Responsive_Image_Theme";
+import { icons } from "../_data/photos";
 import Link from "next/link";
 
 /* naming conventions to define responsive design*/
@@ -30,6 +32,7 @@ export default function Navbar() {
   return (
     <>
       <nav>
+        <Responsive_Image_Theme photoData={icons} className={pc.nav_icon} />
         <div className={pc.link_container}>
           {links
             .filter((link) => link.href)

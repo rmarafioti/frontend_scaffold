@@ -1,3 +1,9 @@
+.nav_icon {
+  margin-left: 4rem;
+  height: 80px;
+  width: auto;
+}
+
 .link_container {
   width: 100%;
   display: flex;
