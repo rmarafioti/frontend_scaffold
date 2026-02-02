@@ -11,3 +11,13 @@ export const heroPhoto = {
     width: 426,
   },
 };
+
+export const icons = {
+  alt: "website icon and home page button",
+  src_light:
+    "https://res.cloudinary.com/dzpne110u/image/upload/v1761257615/wedding_website/icons/monogram_maroon_vmlyu6.svg",
+  src_dark:
+    "https://res.cloudinary.com/dzpne110u/image/upload/v1761257555/wedding_website/icons/monogram_blush_xospub.svg",
+  height: 118,
+  width: 179,
+};
