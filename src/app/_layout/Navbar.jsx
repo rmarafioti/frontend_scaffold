@@ -14,6 +14,8 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  const isActive = (href) => pathname === href;
+
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
@@ -37,7 +39,13 @@ export default function Navbar() {
           {links
             .filter((link) => link.href)
             .map(({ href, label }) => (
-              <Link key={href} href={href} className={pc.nav_link}>
+              <Link
+                key={href}
+                href={href}
+                className={`${pc.nav_link} ${
+                  isActive(href) ? pc.active_link : ""
+                }`}
+              >
                 {label}
               </Link>
             ))}

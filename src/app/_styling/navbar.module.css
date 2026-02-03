@@ -21,8 +21,12 @@
 }
 
 .nav_link:hover {
-  background: lightgray;
+  background: rgb(236, 234, 234);
   border-bottom: none;
+}
+
+.active_link {
+  background: lightgray;
 }
 
 .mobile_nav {
@@ -34,7 +38,7 @@
 }
 
 @media (max-width: 667px) {
-  .nav_menu {
+  .nav_menu, .nav_icon {
     display: none;
   }
 
