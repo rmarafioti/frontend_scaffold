@@ -1,8 +1,12 @@
-"use client";
+// Scaffold element: a placeholder page, renamed or deleted per site.
+import FadeInSection from "@/app/_components/FadeInSection";
 
-import FadeInSection from "../_components/Fade_In_Section";
+export const metadata = {
+  title: "Feature Two",
+  description: "Feature Two placeholder description",
+};
 
-export default function Feature_Two() {
+export default function FeatureTwo() {
   return (
     <main>
       <FadeInSection>

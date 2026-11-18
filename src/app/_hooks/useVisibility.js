@@ -1,24 +1,24 @@
+// Reports when an element first scrolls into view. Returns a ref to attach and whether the
+// element has been seen; it stays true once seen, so a fade-in plays only once.
 import { useEffect, useRef, useState } from "react";
 
-export default function useVisibilityObserver(threshold = 0.1) {
+export function useVisibility(threshold = 0.1) {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold }
+      { threshold },
     );
+    observer.observe(element);
 
-    if (ref.current) observer.observe(ref.current);
-
-    return () => {
-      if (ref.current) observer.unobserve(ref.current);
-    };
+    return () => observer.disconnect();
   }, [threshold]);
 
   return [ref, isVisible];

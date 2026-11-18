@@ -1,11 +1,12 @@
+/* The home page (page.js). */
 .image_container {
-    width: 800px;
-    margin-bottom: 2rem;
+  width: 800px;
+  margin-bottom: 2rem;
 }
 
 @media (max-width: 800px) {
-    .image_container {
-        width: 100%;
-        margin-bottom: 1rem;
-    }
+  .image_container {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
 }

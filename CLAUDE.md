@@ -295,7 +295,11 @@ When Rich says to commit, first update Progress below to describe the state afte
 
 <!-- FILL: in a client website, replace this with the site's own progress. -->
 
-Template: these docs were written from the CMS backend (`rmarafioti/3d_wd_backend#125`). The code is brought to match them by `rmarafioti/frontend_scaffold#21`: the bug fixes, PascalCase names, Server Component pages, the `cmsFetch` and revalidate placeholders, the server-side contact form, the tooling and CI. Until #21 merges, the Project Architecture tree describes the target, not the code.
+Template: these docs were written from the CMS backend (`rmarafioti/3d_wd_backend#125`), and the code matches them since `rmarafioti/frontend_scaffold#21` (which also closed #19, the navbar highlight): the bug fixes, PascalCase names, Server Component pages, the `cmsFetch` and revalidate placeholders with tests, the server-side contact form (`sendContactMessage`, EmailJS REST with the four `EMAILJS_*` vars), the theme fix (a menu choice beats the system; Reset follows the system), the tooling and CI. Next 16.4.6, React 19.3.1.
+
+- Template images: the hero is in the `frontend_scaffold` Cloudinary folder (the default static folder in `next.config.mjs`); the logo and the success-modal photo are grey placeholders in `public/placeholders/`.
+- Font size steps are 16, 18, 20 and 22px (`AppWrapper.jsx`). Icon buttons are sized as 1em squares with the padding inside, since the global `button` rule would otherwise resize them.
+- Open for the backend session: `docs/site.md`'s Contact form row says the EmailJS account "allows only this site's domain", but the domain allowlist only covers browser sends; server sends need "API for non-browser applications" on and the private key. The architecture tree lists `AGENTS.md`, but `next dev` 16.4.6 did not write one here.
 
 ## Plan Authoring
 

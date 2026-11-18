@@ -1,11 +1,15 @@
-"use client";
+// The home page: placeholder copy, the hero image and the contact form.
+import ContactForm from "@/app/_components/forms/ContactForm";
+import FadeInSection from "@/app/_components/FadeInSection";
+import ResponsiveImage from "@/app/_components/ResponsiveImage";
+import { heroPhoto } from "@/app/_data/photos";
 
-import { heroPhoto } from "./_data/photos";
-import FadeInSection from "./_components/Fade_In_Section";
-import Responsive_Image_Layout from "./_components/Responsive_Image_Layout";
-import Contact_Form from "./_components/forms/Contact_Form";
+import styles from "@/app/_styling/landing_page.module.css";
 
-import styles from "./_styling/landing_page.module.css";
+export const metadata = {
+  title: "Home",
+  description: "Landing page placeholder description",
+};
 
 export default function Home() {
   return (
@@ -17,12 +21,9 @@ export default function Home() {
           consectetur adipiscing elit quisque faucibus.
         </h2>
         <div className={styles.image_container}>
-          <Responsive_Image_Layout
-            photoData={heroPhoto}
-            /*className={styles.hero_photo}*/
-          />
+          <ResponsiveImage photoData={heroPhoto} />
         </div>
-        <Contact_Form />
+        <ContactForm />
       </FadeInSection>
     </main>
   );
