@@ -1,5 +1,26 @@
+/* ResponsiveImage, and ResponsiveThemeImage's light/dark swap. */
 .image {
-    display: block;
-    width: 100%;
-    height: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ResponsiveThemeImage renders both sources and hides the one not matching the theme: the
+   visitor's choice (data-theme on <html>) wins over the system preference. These rules only
+   ever hide, so a site's own display: none on the image (a hidden mobile logo) still works. */
+:root[data-theme="light"] .darkImage,
+:root[data-theme="dark"] .lightImage {
+  display: none;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .darkImage {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .lightImage {
+    display: none;
+  }
 }

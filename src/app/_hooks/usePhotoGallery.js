@@ -1,27 +1,29 @@
+// Scaffold element: state for a photo gallery modal (which photo is shown, open/closed, next and
+// previous, wrapping around at either end). Takes the site's own photos from _data/.
 import { useState } from "react";
 
-const usePhotoGallery = (photos) => {
+export function usePhotoGallery(photos) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
 
   const currentImageObj = photos[currentIndex];
 
-  const openModal = (index) => {
+  function openModal(index) {
     setCurrentIndex(index);
     setIsOpen(true);
-  };
+  }
 
-  const closeModal = () => {
+  function closeModal() {
     setIsOpen(false);
-  };
+  }
 
-  const handleNext = () => {
+  function handleNext() {
     setCurrentIndex((prev) => (prev + 1) % photos.length);
-  };
+  }
 
-  const handlePrev = () => {
+  function handlePrev() {
     setCurrentIndex((prev) => (prev - 1 + photos.length) % photos.length);
-  };
+  }
 
   return {
     handleNext,
@@ -33,6 +35,4 @@ const usePhotoGallery = (photos) => {
     isOpen,
     photos,
   };
-};
-
-export default usePhotoGallery;
+}

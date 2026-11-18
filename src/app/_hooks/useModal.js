@@ -1,16 +1,16 @@
+// Open/closed state for a modal, such as the contact form's success modal.
 import { useState } from "react";
 
-const useModal = () => {
+export function useModal() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
+  function openModal() {
+    setIsOpen(true);
+  }
 
-  return {
-    isOpen,
-    openModal,
-    closeModal,
-  };
-};
+  function closeModal() {
+    setIsOpen(false);
+  }
 
-export default useModal;
+  return { isOpen, openModal, closeModal };
+}

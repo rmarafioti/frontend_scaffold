@@ -1,3 +1,4 @@
+/* The navbar: desktop links, the logo, and the mobile bar and menu (Navbar.jsx). */
 .nav_icon {
   margin-left: 4rem;
   height: 80px;
@@ -21,8 +22,12 @@
 }
 
 .nav_link:hover {
-  background: lightgray;
+  background: rgb(236, 234, 234);
   border-bottom: none;
+}
+
+.active_link {
+  background: lightgray;
 }
 
 .mobile_nav {
@@ -34,7 +39,8 @@
 }
 
 @media (max-width: 667px) {
-  .nav_menu {
+  .nav_menu,
+  .nav_icon {
     display: none;
   }
 
@@ -67,14 +73,18 @@
   }
 }
 
-/* dark mode stylings */
+/* dark mode stylings: a dark system, unless the visitor chose light */
 @media (prefers-color-scheme: dark) {
-  .nav_link:hover {
+  :root:not([data-theme="light"]) .nav_link:hover {
     color: var(--foreground);
     background: var(--dm_background);
   }
-  .mobile_nav {
+  :root:not([data-theme="light"]) .mobile_nav {
     background-color: var(--dm_background);
+  }
+  /* The active link keeps its light gray highlight, so its text stays dark. */
+  :root:not([data-theme="light"]) .active_link {
+    color: var(--background);
   }
 }
 
@@ -85,4 +95,8 @@
 
 [data-theme="dark"] .mobile_nav {
   background-color: var(--dm_background);
+}
+
+[data-theme="dark"] .active_link {
+  color: var(--background);
 }

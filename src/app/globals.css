@@ -1,3 +1,5 @@
+/* Global styles: the reset, the theme variables (light, and dark by system or by choice), and the
+   base element styles shared by every page. */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -13,16 +15,20 @@
   --main-font: "Outfit", serif;
 }
 
+/* Dark theme: a dark system, unless the visitor chose light in the accessibility menu, or the
+   visitor chose dark. The choice is data-theme on <html>, set by AppWrapper. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --background: #0a0a0a;
     --foreground: #ededed;
+    color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
   --background: #0a0a0a;
   --foreground: #ededed;
+  color-scheme: dark;
 }
 
 html,
@@ -47,7 +53,8 @@ h1 {
   margin-bottom: 2rem;
 }
 
-h2, h3 {
+h2,
+h3 {
   font-size: 2.5em;
   margin-bottom: 2rem;
 }
@@ -104,7 +111,9 @@ section {
 section.visible {
   opacity: 1;
   transform: translateY(0px);
-  transition: opacity 1.5s ease-in, transform 1s ease-in;
+  transition:
+    opacity 1.5s ease-in,
+    transform 1s ease-in;
 }
 
 @media (max-width: 800px) {
@@ -153,11 +162,5 @@ button {
   }
   form {
     width: 100%;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
   }
 }

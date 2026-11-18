@@ -1,81 +1,104 @@
+// The site navigation: the logo and links on desktop, a Home link and a menu button on mobile.
+// The current page's link is highlighted and marked aria-current. A Client Component for the
+// mobile menu's open state and the current path.
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import Responsive_Image_Theme from "../_components/Responsive_Image_Theme";
-import { icons } from "../_data/photos";
+import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-/* naming conventions to define responsive design*/
-import pc from "../_styling/navbar.module.css";
-import mobile from "../_styling/mobile_nav.module.css";
+import ResponsiveThemeImage from "@/app/_components/ResponsiveThemeImage";
+import { logo } from "@/app/_data/photos";
+
+/* naming conventions to define responsive design */
+import pc from "@/app/_styling/navbar.module.css";
+import mobile from "@/app/_styling/mobile_nav.module.css";
+
+const NAV_LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/featureOne", label: "One" },
+  { href: "/featureTwo", label: "Two" },
+  { href: "/featureThree", label: "Three" },
+];
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
+  function isActive(href) {
+    return pathname === href;
+  }
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  function toggleMenu() {
+    setIsMenuOpen((prev) => !prev);
+  }
 
-  const links = [
-    { href: "/", label: "Home" },
-    { href: "/featureOne", label: "One" },
-    { href: "/featureTwo", label: "Two" },
-    { href: "/featureThree", label: "Three" },
-  ];
+  function closeMenu() {
+    setIsMenuOpen(false);
+  }
 
   return (
     <>
       <nav>
-        <Responsive_Image_Theme photoData={icons} className={pc.nav_icon} />
+        <ResponsiveThemeImage photoData={logo} className={pc.nav_icon} />
         <div className={pc.link_container}>
-          {links
-            .filter((link) => link.href)
-            .map(({ href, label }) => (
-              <Link key={href} href={href} className={pc.nav_link}>
-                {label}
-              </Link>
-            ))}
+          {NAV_LINKS.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className={`${pc.nav_link} ${isActive(href) ? pc.active_link : ""}`}
+              aria-current={isActive(href) ? "page" : undefined}
+            >
+              {label}
+            </Link>
+          ))}
         </div>
 
         {/* mobile navigation menu below */}
         <div className={pc.mobile_nav}>
-          <Link href="/" className={pc.nav_link}>
+          <Link
+            href="/"
+            className={pc.nav_link}
+            aria-current={isActive("/") ? "page" : undefined}
+            onClick={closeMenu}
+          >
             Home
           </Link>
-          {/*hamburger menu*/}
-          <div id={mobile.hamMenuContainer} onClick={toggleMenu}>
-            <div
+          {/* hamburger menu */}
+          <button
+            type="button"
+            id={mobile.hamMenuContainer}
+            onClick={toggleMenu}
+            aria-label="Menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+          >
+            <span
               className={`${mobile.menuButtonBurger} ${
-                menuOpen ? mobile.open : ""
+                isMenuOpen ? mobile.open : ""
               }`}
-            ></div>
-          </div>
+            ></span>
+          </button>
         </div>
       </nav>
 
       {/* mobile menu */}
       <menu
-        className={`${pc.menu} ${menuOpen ? pc.active : ""}`}
+        id="mobile-menu"
+        className={`${pc.menu} ${isMenuOpen ? pc.active : ""}`}
         aria-label="Mobile Navigation"
       >
-        {links
-          .filter((link) => link.href !== "/")
-          .map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              role="heading"
-              className={mobile.nav_link}
-            >
-              {label}
-            </Link>
-          ))}
+        {NAV_LINKS.filter(({ href }) => href !== "/").map(({ href, label }) => (
+          <Link
+            key={href}
+            href={href}
+            className={mobile.nav_link}
+            aria-current={isActive(href) ? "page" : undefined}
+            onClick={closeMenu}
+          >
+            {label}
+          </Link>
+        ))}
       </menu>
     </>
   );

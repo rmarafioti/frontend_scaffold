@@ -1,3 +1,4 @@
+/* The contact form (ContactForm.jsx). */
 .header {
   margin-bottom: 0.5rem;
 }
@@ -43,20 +44,22 @@
   padding-bottom: 0.5rem;
 }
 
-/* dark mode stylings */
+/* dark mode stylings: a dark system, unless the visitor chose light */
 @media (prefers-color-scheme: dark) {
-  .name,
-  .email,
-  .message {
+  :root:not([data-theme="light"]) :is(.name, .email, .message) {
     background-color: var(--dm_background);
   }
-  .send {
+  :root:not([data-theme="light"]) .send {
     color: var(--background);
   }
 }
 
 [data-theme="dark"] :is(.name, .email, .message) {
   background-color: var(--dm_background);
+}
+
+[data-theme="dark"] .send {
+  color: var(--background);
 }
 
 @media (max-width: 667px) and (hover: none) {

@@ -1,3 +1,9 @@
+// The site's own images (not CMS content). The template's hero is in its frontend_scaffold
+// Cloudinary folder, the others are neutral placeholders in public/placeholders/. A client
+// website replaces each with its own image, in public/ or in its static image folder on
+// Cloudinary (docs/site.md), keeping real width, height and alt.
+
+// The home page hero: one image with a desktop and a mobile source (ResponsiveImage).
 export const heroPhoto = {
   alt: "Picture of a 1980s desktop computer with the words 'pc view' overlayed ontop of the image",
   desktop: {
@@ -12,12 +18,19 @@ export const heroPhoto = {
   },
 };
 
-export const icons = {
-  alt: "website icon and home page button",
-  src_light:
-    "https://res.cloudinary.com/dzpne110u/image/upload/v1761257615/wedding_website/icons/monogram_maroon_vmlyu6.svg",
-  src_dark:
-    "https://res.cloudinary.com/dzpne110u/image/upload/v1761257555/wedding_website/icons/monogram_blush_xospub.svg",
-  height: 118,
+// The navbar logo: one image with a light and a dark source (ResponsiveThemeImage).
+export const logo = {
+  alt: "Placeholder logo, home page",
+  srcLight: "/placeholders/logo-light.svg",
+  srcDark: "/placeholders/logo-dark.svg",
   width: 179,
+  height: 118,
+};
+
+// The photo in the contact form's success modal.
+export const formPhoto = {
+  alt: "Placeholder photo",
+  src: "/placeholders/form-photo.svg",
+  width: 560,
+  height: 320,
 };
