@@ -1,4 +1,5 @@
-/* The contact form (ContactForm.jsx). */
+/* The contact form (ContactForm.jsx). NewsletterForm.jsx reuses its field, button and message
+   styles, so the two forms match. */
 .header {
   margin-bottom: 0.5rem;
 }

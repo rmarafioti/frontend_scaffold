@@ -1,0 +1,29 @@
+/* The newsletter form (NewsletterForm.jsx). Its field, button and messages use the contact form's
+   styles; these rules only size the form and put the field and button on one row. */
+.form {
+  width: 400px;
+  max-width: 100%;
+}
+
+.row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Two classes, so these win over the contact form's full-width .email and .send. */
+.row > .field {
+  flex: 1;
+  min-width: 0;
+}
+
+.row > .button {
+  flex: none;
+  width: auto;
+  padding: 0.5rem 1rem;
+}
+
+/* The honeypot field: functional only, kept off screen so people never see it. */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+}

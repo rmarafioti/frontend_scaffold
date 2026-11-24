@@ -84,8 +84,9 @@ nav {
 
 footer {
   display: flex;
-  justify-content: center;
-  padding: 2rem 0rem 2rem 0rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem 2rem 1rem;
   border-top: 1px solid lightgray;
 }
 

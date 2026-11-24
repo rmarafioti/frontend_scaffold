@@ -11,7 +11,7 @@ The starting point for every new 3D Web Dev client website: a static Next.js sit
    grep -rn --exclude-dir=node_modules --exclude-dir=cms 'FILL:' .
    ```
 
-3. Rename or delete the scaffold elements (`featureOne` to `featureThree`, `FadeInSection`, `ResponsiveImage`, `ResponsiveThemeImage`, `usePhotoGallery`) and replace the template images in `src/app/_data/photos.js` (the hero in the `frontend_scaffold` Cloudinary folder, the placeholders in `public/placeholders/`).
+3. Rename or delete the scaffold elements (`featureOne` to `featureThree`, `FadeInSection`, `ResponsiveImage`, `ResponsiveThemeImage`, `usePhotoGallery`, the RSS feed and the newsletter signup) and replace the template images in `src/app/_data/photos.js` (the hero in the `frontend_scaffold` Cloudinary folder, the placeholders in `public/placeholders/`).
 
 ## Local setup
 
