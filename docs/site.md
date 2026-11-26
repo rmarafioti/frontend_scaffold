@@ -4,16 +4,16 @@ Everything particular to this website. The shared CMS docs in `docs/cms/` are sy
 
 ## Site Details
 
-| Detail              | Value                                                                                                                                                             |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Website name        | <!-- FILL -->                                                                                                                                                     |
-| Production URL      | <!-- FILL: e.g. `https://www.example.com` -->: the exact URL stored in the CMS, no redirect                                                                       |
-| Vercel project      | <!-- FILL: the project name -->, in 3DWD's Vercel Pro team                                                                                                        |
-| CMS media folder    | <!-- FILL: `media_folder` -->: this site's upload folder in 3DWD's Cloudinary account, given by the CMS                                                           |
-| Static image folder | <!-- FILL: the folder -->: the site's own images (`_data/photos.js`), in the same Cloudinary account, or `public/`                                                |
-| Pages               | <!-- FILL: one line per route, e.g. `/`: home page (hero, intro, contact form) -->                                                                                |
-| Newsletter          | <!-- FILL: whether the site keeps the RSS feed (`/feed.xml`) and newsletter signup, the vendor (Buttondown), and the post path the feed links to; else "none" --> |
-| Contact form        | <!-- FILL: the EmailJS service and template it sends with, and that the account allows only this site's domain -->                                                |
+| Detail              | Value                                                                                                                                                                       |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Website name        | <!-- FILL -->                                                                                                                                                               |
+| Production URL      | <!-- FILL: e.g. `https://www.example.com` -->: the exact URL stored in the CMS, no redirect                                                                                 |
+| Vercel project      | <!-- FILL: the project name -->, in 3DWD's Vercel Pro team                                                                                                                  |
+| CMS media folder    | <!-- FILL: `media_folder` -->: this site's upload folder in 3DWD's Cloudinary account, given by the CMS                                                                     |
+| Static image folder | <!-- FILL: the folder -->: the site's own images (`_data/photos.js`), in the same Cloudinary account, or `public/`                                                          |
+| Pages               | <!-- FILL: one line per route, e.g. `/`: home page (hero, intro, contact form) -->                                                                                          |
+| Newsletter          | <!-- FILL: whether the site keeps the RSS feed (`/feed.xml`) and newsletter signup, the vendor (Buttondown), and the post path the feed links to; else "none" -->           |
+| Contact form        | <!-- FILL: its questions beyond name, email and message (sent as extras), and whether it takes photos (the photo picker); it sends through the CMS, docs/cms/contact.md --> |
 
 `next/image` loads only from `3dwd/<media_folder>/` (production uploads), `3dwd-dev/<media_folder>/` (local uploads) and the static image folder, set in `next.config.mjs`.
 
