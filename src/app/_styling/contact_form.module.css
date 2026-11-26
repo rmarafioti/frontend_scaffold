@@ -82,3 +82,9 @@
     text-align: center;
   }
 }
+
+/* The honeypot field: functional only, kept off screen so people never see it. */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+}
