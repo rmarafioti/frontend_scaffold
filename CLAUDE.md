@@ -84,7 +84,7 @@ root
 │   └── site.md                   *this site's details, the abilities it uses, its quirks
 ├── .github/
 │   └── workflows/
-│       └── ci.yml                *copied unchanged from client-kit's templates/ci.yml: jobs cms (drift) and check (lint, test)
+│       └── ci.yml                *copied unchanged from client-kit's templates/ci.yml: jobs cms (drift) and check (lint, Prettier check, test, build)
 ├── .env.example                  *the HEADLESS_CMS_* and BUTTONDOWN_API_KEY names, empty values
 ├── .gitignore                    *create-next-app's, plus !.env.example so the example is committed
 ├── .prettierignore               *docs/cms/, so npm run format never reformats the synced docs
@@ -234,7 +234,7 @@ A review is read-only. It produces findings; it never edits code. Fixes are thei
 6. **The integration still matches `docs/cms/`:** run the "Done when" list of `client-website.md` and of each ability doc this site uses against the code.
 7. **The Anti-Patterns still hold:** `cmsFetch` only, secrets server-only, no browser fetch or browser email, static pages, no HTML injection, no empty fields, no hardcoded content, no aesthetic styling.
 8. **Every state renders:** for CMS content, nothing returned, optional fields empty, and each content case its ability doc lists; for the contact form, a field missing, a bad email, a send failure and a success; for the accessibility menu, every setting by mouse and by keyboard, on a light and a dark system.
-9. **Tooling is clean:** `npm test`, `npm run lint`, `npm run format` (no diff) and `npm run build` pass, with every page static, and the PR's CI (cms and check) is green.
+9. **Tooling is clean:** `npm test`, `npm run lint`, `npm run format` (no diff) and `npm run build` pass, with every page static, and the PR's CI (cms and check, which runs lint, the Prettier check, the tests and the build) is green.
 
 ### Output
 
@@ -314,7 +314,7 @@ Template: these docs were written from the CMS backend (`rmarafioti/3d_wd_backen
 - Template images: the hero is in the `frontend_scaffold` Cloudinary folder (the default static folder in `next.config.mjs`); the logo and the success-modal photo are grey placeholders in `public/placeholders/`.
 - Font size steps are 16, 18, 20 and 22px (`AppWrapper.jsx`). Icon buttons are sized as 1em squares with the padding inside, since the global `button` rule would otherwise resize them.
 - RSS feed and newsletter signup (issue #25), scaffold elements: `/feed.xml` (static, teaser items, guid = the post's id, refreshed by the `cms` tag) and `NewsletterForm` in the Footer, adding subscribers through Buttondown's API (pinned `X-API-Version: 2026-11-10`, double opt-in, a honeypot). The form reuses the contact form's styles, with the field and button on one row. Buttondown is the vendor for Rich's own blog; new-post emails are written by hand in Buttondown until its RSS-to-email add-on is taken. Not yet tested with a real Buttondown key.
-- Contact form through the CMS (issue #28, backend `rmarafioti/3d_wd_backend#126`): `sendContactMessage` posts to `POST /api/public/contact` with the existing `HEADLESS_CMS_*` URL and key; EmailJS and its four vars are gone. A `contactCode` honeypot is checked on the server first; a 400's field messages show next to their fields (`name` → `full_name`, `images.N.content` → photos), and 413, 429, other failures and an unset URL show the general error. The photo picker (scaffold element) adds one photo at a time and turns off at 3, shrinking each to a 1600 px jpg in the browser; `bodySizeLimit` is 4 MB. Tested end to end against the local CMS with the backend session: rows with 0, 1 and 3 photos saved, the honeypot, a bad image, a bad email and a wrong key saved nothing, and a real email with 3 photos arrived. Still unchecked: that a portrait phone photo arrives upright. `docs/cms/contact.md` reaches this repo by sync only after the backend is released to production; until then the code's comments point to a file not yet here (it is on client-kit's `feat/contact-ability`).
+- Contact form through the CMS (issue #28, backend `rmarafioti/3d_wd_backend#126`): `sendContactMessage` posts to `POST /api/public/contact` with the existing `HEADLESS_CMS_*` URL and key; EmailJS and its four vars are gone. A `contactCode` honeypot is checked on the server first; a 400's field messages show next to their fields (`name` → `full_name`, `images.N.content` → photos), and 413, 429, other failures and an unset URL show the general error. The photo picker (scaffold element) adds one photo at a time and turns off at 3, shrinking each to a 1600 px jpg in the browser; `bodySizeLimit` is 4 MB. Tested end to end against the local CMS with the backend session: rows with 0, 1 and 3 photos saved, the honeypot, a bad image, a bad email and a wrong key saved nothing, and a real email with 3 photos arrived. `docs/cms/contact.md` reaches this repo by sync only after the backend is released to production; until then the code's comments point to a file not yet here (it is on client-kit's `feat/contact-ability`).
 - `next dev` 16.4.6 writes `AGENTS.md`, which is committed.
 
 ## Plan Authoring
